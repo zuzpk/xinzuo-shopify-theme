@@ -1,0 +1,66 @@
+{% capture context_json %}
+  {
+    "section_type": "landing",
+    "heading": {{ section.settings.heading | json }},
+    "subheading": {{ section.settings.subheading | json }},
+    "primary_cta_text": {{ section.settings.primary_cta_text | json }},
+    "primary_cta_url": {{ section.settings.primary_cta_url | json }},
+    "secondary_cta_text": {{ section.settings.secondary_cta_text | json }},
+    "secondary_cta_url": {{ section.settings.secondary_cta_url | json }},
+    "background_image": {{ section.settings.background_image | img_url: '2000x' | json }}
+  }
+{% endcapture %}
+
+<zuz-theme-root data-context='{{ context_json | escape }}'></zuz-theme-root>
+
+{% schema %}
+{
+  "name": "React Landing Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Headline",
+      "default": "Craftsmanship Meets Performance"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading Text",
+      "default": "Discover our collection of ultra-premium, hand-forged kitchen knives engineered for culinary perfection."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_text",
+      "label": "Primary Button Text",
+      "default": "Shop Best Sellers"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_url",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_text",
+      "label": "Secondary Button Text",
+      "default": "Our Story"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_url",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Hero Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "React Landing Hero"
+    }
+  ]
+}
+{% endschema %}

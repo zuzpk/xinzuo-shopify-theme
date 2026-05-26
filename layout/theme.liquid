@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  {% assign cache_bust = 'now' | date: '%s' %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="stylesheet" href="https://glyph.zuzcdn.net/fonts/OVgLtGakALxANTspDn/styles.css?v={{ cache_bust }}" />
+  <title>{{ page_title }}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {{ content_for_header }}
+
+  {{ 'zuzjs-theme.css' | asset_url | stylesheet_tag }}
+</head>
+<body>
+
+  <main role="main" class="--scroll-content" id="theme-main-scroll">
+    {{ content_for_layout }}
+  </main>
+
+  <script src="{{ 'zuzjs-theme.js' | asset_url }}" defer="defer"></script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+$vars: (
+    
+    primary: #FFD380,
+    primary-hover: #FFDC99,
+    secondary: #af48c2,
+    
+    radius: 75px,
+    dialog-radius: 40px,
+    radius-md: var(--radius),
+    button-color: var(--text-btn),
+    form-padding: 10px,
+    checkbox-radius: 30px,
+    icon-color-2: rgb(from var(--icon-color-1) r g b / 0.5),
+
+);
+
+$light: (
+
+    // primary: #111,
+    // primary-hover: #333,
+    background: var(--manatee-200),
+    surface: #fff,
+    surface-hover: #f6f6f6,
+    muted: #fff,
+    muted-hover: #f6f6f6,
+    text-btn: #fff,
+    text-primary: #111,
+    text-primary-hover: #222,
+    text-secondary: #444,
+    text-secondary-hover: #666,
+    border-primary: #ddd,
+    border-secondary: #eee,
+    cover-bg: rgba(229, 233, 239, 0.9),
+
+    bgradient: linear-gradient(to bottom, var(--muted), var(--muted50)),
+    bborder: 1px var(--border-primary-75) solid,
+
+    icon-color-1: #3e3838,
+
+    grid-line-y: #d8dee5,
+    grid-line-x: #d8dee5,
+
+    table-border: 1px solid var(--border-primary-50),
+    table-radius: 40px,
+    table-row-head: var(--surface-25),
+    table-row-even: var(--surface-50),
+    table-row-odd: var(--muted-50),
+    table-row-hover: var(--muted),
+    table-row-gap: 1px,
+
+    badge: #566a88,
+
+);
+
+$dark: (
+
+    
+    background: #131313,
+    surface: #1e1f20,
+    surface-hover: #292a2c,
+    muted: #272829,
+    muted-hover: #2e2f31,
+    text-btn: #fff,
+    text-primary: #fff,
+    text-primary-hover: #f6f6f6,
+    text-secondary: #e3e3e3,
+    text-secondary-hover: #d8d8d8,
+    border-primary: #555,
+    border-secondary: #444,
+    cover-bg: rgba(19, 19, 19, 0.9),
+
+    bgradient: linear-gradient(to bottom, var(--muted50), var(--muted25)),
+    bborder: 1px var(--border-primary-50) solid,
+
+    icon-color-1: var(--text-primary),
+
+    grid-line-y: #1a1c1d,
+    grid-line-x: #1a1c1d,
+    
+    table-border: 1px solid var(--border-primary-50),
+    table-radius: 40px,
+    table-row-head: var(--surface-25),
+    table-row-even: var(--surface-50),
+    table-row-odd: var(--muted-50),
+    table-row-gap: 1px,
+    table-row-hover: var(--muted),
+
+    badge: #a9b1bc,
+);
+
+body {
+
+    color-scheme: light dark;
+
+    @each $name, $value in $vars{
+        --#{$name}: #{$value};
+    }
+
+    
+    @each $name, $value in $light {
+        --#{$name}: #{$value};
+    }   
+    
+}
+
+[color-scheme="dark"] {
+    body{
+        @each $name, $value in $dark {
+            --#{$name}: #{$value};
+        }
+    }
+}
+
+html, body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: var(--text-md);
+}
+
+a{ color: var(--text-primary); user-select: none; }

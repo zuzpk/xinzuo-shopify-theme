@@ -1,0 +1,18 @@
+{
+    "sections": {
+        "header": {
+            "type": "header"
+        },
+        "landing": {
+            "type": "landing"
+        },
+        "footer": {
+            "type": "footer"
+        }
+    },
+    "order": [
+        "header",
+        "landing",
+        "footer"
+    ]
+}
